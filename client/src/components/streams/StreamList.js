@@ -5,7 +5,7 @@ import { fetchStreams } from "../../actions";
 
 class StreamList extends React.Component {
   componentDidMount() {
-    this.props.fetchStreams();
+    this.props.fetchStreams(this.props.streams);
   }
   renderAdmin(stream) {
     if (stream.userId === this.props.currentUserId) {
@@ -21,7 +21,6 @@ class StreamList extends React.Component {
   }
   renderList() {
     return this.props.streams.map((stream, id) => {
-      console.log(this.props.streams);
       return (
         <div className="item" key={id}>
           {this.renderAdmin(stream)}
